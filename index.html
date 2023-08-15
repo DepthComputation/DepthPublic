@@ -104,11 +104,11 @@
                 </h3>
                 <p style="text-align:center;">
                     <br>
-                    <h4>The following table shows challenging InSpaceType benchmark for the overall performance following the major monocular depth estimation protocol and metrics. We adopt the following publicly released models trained on NYUv2 for evaluation. Recent work using larger-scale backbone models obtains lower error and higher accuracy. </h4>
+                    <h4>The table shows challenging InSpaceType benchmark for the overall performance, following the major monocular depth estimation protocol and metrics. We adopt the following publicly released models trained on NYUv2 for evaluation. Recent work using larger-scale backbone models obtains lower error and higher accuracy. </h4>
                     <image src="pics/overall.png" height="50px" class="img-responsive">
 
                     <br>                    
-                    <h4>Sample SpaceType breakdown is shown as follows. Different from conventional monocular depth estimation protocol, our work pioneers to study space type breakdown for a method. This provides a hint on how a method performs across different space types. From the following table one can observe the state-of-the-art models suffer from major performance imbalance issue. Both methods have similar easy and hard type which potentially inhereted from NYUv2. Directly deploying those SOTA models for in-the-wild application can add robustness concern. <br></h4>
+                    <h4>Sample SpaceType breakdown is shown as follows. Different from conventional monocular depth estimation protocols, our work pioneers to study space type breakdown for a method. This provides a hint on how a method performs across different space types. From the following table one can observe the state-of-the-art models suffer from major performance imbalance issue. Both methods have similar easy and hard type which are potentially inherited from NYUv2. Directly deploying those SOTA models for in-the-wild application can add robustness concern. <br></h4>
                     <image src="pics/type.png" height="50px" class="img-responsive">
     
                 
@@ -140,7 +140,7 @@
                     <h4>We first creat a larger InSpaceType training set and study a dataset fitting problem. This aims to show how each space type fits when training all the types together and attempts to observe concordance between types. From the table large room and lounge are large-size spaces and naturally result in slightly higher RMSE. It is worth noting that there is an apparent trend: for errors, larger rooms and longer ranges tend to have a higher estimation error; for accuracy, arbitrarily arranged small objects in the near field are challenging, a frequent scenario for kitchen.</h4>
                     <image src="pics/fitting.png" height="30px" class="img-responsive">
                     <br>                    
-                    <h4>We then study three different strategies to alleviate type imbalanceL meta-learning (ML), class reweighting (CR), and class-balance sampler (CBS). One can find CBS and ML are better strategies to attain lower standard deviation across types (t-STD) and better overall performance. Though CR attains lower t-STD, its overall performance drop as well. This is because CR could harm head-class performances as observed in literature<br></h4>
+                    <h4>We then study three different strategies to alleviate type imbalanceL meta-learning (ML), class reweighting (CR), and class-balance sampler (CBS). One can find CBS and ML are better strategies to attain lower standard deviation across types (t-STD) and better overall performance. Though CR attains lower t-STD, its overall performance drop as well. This is because CR could harm head-class performances as observed in literature.<br></h4>
                     <image src="pics/mitigation.png" height="30px" class="img-responsive">
     
                 </p>
@@ -175,7 +175,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
-                    <h3>Sample heirarchy labeling and breakdown in supplementary:<br></h3>
+                    <h3>Sample heirarchy labeling and breakdown:<br></h3>
                     <image src="pics/heirarchy.png" height="1000px">
                 </p>
             </div>
