@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>InSpaceType: Reconsider Space Type in Indoor Monocular Depth Estimation</title>
+    <title>InSpaceType: A Dataset and Analysis Tool for Space Type in Indoor Monocular Depth Estimation</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +46,7 @@
 <body>
     <div class="row">
         <h2 class="col-md-12 text-center">
-            InSpaceType: Reconsider Space Type in Indoor Monocular Depth Estimation<br> 
+            InSpaceType: A Dataset and Analysis Tool for Space Type in Indoor Monocular Depth Estimation<br> 
             <small>
                 In submission landing page
             </small>
@@ -80,7 +80,7 @@
                     * TL;DR 
                 </h3>
                 <p class="text-justify">
-                    This work introduces a dataset and benchmark that reconsiders an important but usually overlooked factor- space type. We detailedly analyze ten SOTA models and four popular training dataset and unveil their potential biases.
+                    This work introduces a dataset and benchmark that reconsiders an important but usually overlooked factor- space type. We detailedly analyze 12 SOTA models and four popular training dataset to unveil their potential biases. Further, we study cross-type generalization and domain generalization techniques. 
                 </p> 
 
             </div>
@@ -92,7 +92,7 @@
                     * Abstract
                 </h3>
                 <p class="text-justify">
-                    Indoor monocular depth estimation has attracted increasing research interest. Most previous works have been focusing on methodology, primarily experimenting with NYU-Depth-V2 (NYUv2) Dataset, and only concentrated on the overall performance over the test set. However, little is known regarding robustness and generalization when it comes to applying monocular depth estimation methods to real-world scenarios where highly varying and diverse functional space types are present such as library or kitchen. A study for performance breakdown into space types is essential to realize a pretrained model's performance variance. To facilitate our investigation for robustness and address limitations of previous works, we collect InSpaceType, a high-quality and high-resolution RGBD dataset for general indoor environments. We benchmark 10 recent methods on InSpaceType and find they severely suffer from performance imbalance concerning space types, which reveals their underlying bias. We extend our analysis to 4 other datasets, 3 mitigation approaches, and the ability to generalize to unseen space types. Our work marks the first in-depth investigation of performance imbalance across space types for indoor monocular depth estimation, drawing attention to potential safety concerns for model deployment without considering space types, and further shedding light on potential ways to improve robustness.
+                    Indoor monocular depth estimation attracted higher research interest in indoor robots to aid navigation and perception. Most previous methods primarily experiment with NYUv2 Dataset and concentrate on the overall evaluation performance. However, little is known regarding robustness and generalization in the real world where highly varying and diverse functional \textit{space types}, such as library or kitchen, are present as tailed types. This work studies the common but easily overlooked factor- space type and realizes a model's performance variance. We present InSpaceType Dataset, a high-quality and high-resolution RGBD dataset for general indoor environments. We study 12 recent methods on InSpaceType and find most of them severely suffer from performance imbalance between head and tailed types and reveal their underlying bias. We extend analysis to total 4 datasets and organize their characteristics to enlighten further research directions on proper usage of them. Further, we study interplays between types and generalization to unseen spaces. Our work marks the first in-depth investigation of performance variance across space types and, more importantly, releases useful tools, including datasets and codes, to closely examine a given pretrained model.
                 </p>
             </div>
         </div>
@@ -104,12 +104,13 @@
                 </h3>
                 <p style="text-align:center;">
                     <br>
-                    <h4>The table shows challenging InSpaceType benchmark for the overall performance, following the major monocular depth estimation protocol and metrics. We adopt the following publicly released models trained on NYUv2 for evaluation. Recent work using larger-scale backbone models obtains lower error and higher accuracy. </h4>
-                    <image src="pics/overall.png" height="50px" class="img-responsive">
+                    <h4>InSpaceType benchmark: overall performance. The best number is in bold, and the second-best (by method) is underlined. $^*$ denotes self-supervised learning.</h4>
+                    <image src="pics/overall_2.png" height="50px" class="img-responsive">
 
                     <br>                    
-                    <h4>Sample SpaceType breakdown is shown as follows. Different from conventional monocular depth estimation protocols, our work pioneers to study space type breakdown for a method. This provides a hint on how a method performs across different space types. From the following table one can observe the state-of-the-art models suffer from major performance imbalance issue. Both methods have similar easy and hard type which are potentially inherited from NYUv2. Directly deploying those SOTA models for in-the-wild application can add robustness concern. <br></h4>
-                    <image src="pics/type.png" height="50px" class="img-responsive">
+                    <h4>First table studies three top methods among those trained only on NYUv2 for depth estimation only (N-Depth only): MIM, PixelFormer, and NeWCRFs. Second table studies three top methods among those \textit{pretrained on multiple datasets or learned from large-scale pertaining (M\&LS-Pre) then finetuned on NYUv2: ZoeDepth and VPD. Beside the breakdown, we also list top-5 space types based on lower/higher error (RMSE) and accuracy ($\delta_1$). Easy and hard types are listed based on co-occurrence in the top-5 list.<br></h4>
+                    <image src="pics/breakdown_1.png" height="50px" class="img-responsive">
+		    <image src="pics/breakdown_2s.png" height="50px" class="img-responsive">
     
                 
                 </p>
@@ -119,43 +120,27 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    * Analysis III [Training datasets]
+                    * Analysis III [More training datasets]
                 </h3>
                 <p style="text-align:center;">
-                    <h4>In addition to NYUv2, we analyze other popular training datasets: Hypersim, SimSIN, UniSIN for indoor moncular depth estimation. One can find models trained on each training dataset also suffer from imbalance between space types, revealing their underlying bias. We also find that kitchen is a special type with lower RMSE but also very low accuracy. We assume this is because kitchen contains many cluttered small objects, such as bottles, kitchenware, and utensils in the near field. Current synthetic datasets (SimSIN, Hypersim) may not attain the same level of simulation complexity and thus training on them may not match the real-world complexity.</h4>
-                    <image src="pics/dataset-1.png" height="50px" class="img-responsive">
-                    <image src="pics/dataset-2.png" height="50px" class="img-responsive">
+                    <h4>Space type breakdown and characteristics for SimSIN, UniSIN, and Hypersim Dataset.</h4>
+                    <image src="pics/training.png" height="100px" class="img-responsive">
+                    <image src="pics/training_list.png" height="45px" class="img-responsive">
 
                 </p>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    * Analysis IV-V [Dataset fitting and bias mitigation]
-                </h3>
-                <p style="text-align:center;">
-                    <br>
-                    <h4>We first creat a larger InSpaceType training set and study a dataset fitting problem. This aims to show how each space type fits when training all the types together and attempts to observe concordance between types. From the table large room and lounge are large-size spaces and naturally result in slightly higher RMSE. It is worth noting that there is an apparent trend: for errors, larger rooms and longer ranges tend to have a higher estimation error; for accuracy, arbitrarily arranged small objects in the near field are challenging, a frequent scenario for kitchen.</h4>
-                    <image src="pics/fitting.png" height="30px" class="img-responsive">
-                    <br>                    
-                    <h4>We then study three different strategies to alleviate type imbalanceL meta-learning (ML), class reweighting (CR), and class-balance sampler (CBS). One can find CBS and ML are better strategies to attain lower standard deviation across types (t-STD) and better overall performance. Though CR attains lower t-STD, its overall performance drop as well. This is because CR could harm head-class performances as observed in literature.<br></h4>
-                    <image src="pics/mitigation.png" height="30px" class="img-responsive">
-    
-                </p>
-            </div>
-        </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    * Analysis VI [Intra-group generalization]
+                    * Analysis IV [Cross-group generalization]
                 </h3>
                 <p style="text-align:center;">
-                    <h4> We next investigate generalization to unseen types. We divide the whole InSpaceType training set into different splits, train on each division, and then evaluate on InSpaceType eval split. The whole training set is divided into three groups based on similarity between types and concerns a situation where one collects training data almost in the same functionality that matches the primary application scenarios without considering different user scenarios. <br>
-                    The left half shows generalization to other types, and the right half shows evaluation on different depth ranges. Training on specific groups can produce good performance on its dedicated types. However, one can observe training on only some types encounters severe issues in generalization to other unseen types, which further reveal high variation between different indoor environments, and pretrained knowledge on some types may not easily transfer to other types.</h4>
-                    <image src="pics/group.png" height="45px" class="img-responsive">
+                    <h4> Cross-group generalization evaluation. G1$\to$ specifies a training group (G), and each row below shows evaluation groups. Another three ranges, close, medium, and far, are used to show a breakdown by different ranges.</h4>
+                    <image src="pics/range.png" height="45px" class="img-responsive">
+		    <image src="pics/improve.png" height="45px" class="img-responsive">
                 </p>
             </div>
         </div>
@@ -167,7 +152,9 @@
                 </h3>
                 <p style="text-align:center;">
                     <br>
-                    <h4> Unlike previous methods that focus on algorithmic developments, we are the first work to consider space types in indoor monocular depth estimation for robustness and practicability in deployment. We point out limitations in previous evaluations where performance variances across types are overlooked and present a novel dataset, InSpaceType, along with a hierarchical space type definition to facilitate our study. We give thorough studies to analyze and benchmark performance based on space types. Ten high-performing methods are examined, and we find they suffer from severe performance imbalance between space types. We analyze a total of 4 training datasets and enumerate their strength and weakness space types. 3 popular strategies, namely, class reweighting, type-balanced sampler, and meta-learning, are studied to mitigate imbalance. Further, we find generalization to unseen space types challenging due to high diversity of objects and mismatched scales across types. Overall, this work pursues a practical purpose and emphasizes the importance of this usually overlooked factor- space type in indoor environments. We call for attention to safety concerns for model deployment without considering performance variance across space types.</h4>
+                    <h4> We are the first to consider space types in indoor monocular depth estimation. We point out limitations in previous works where performance variances across types are overlooked and then present a novel dataset, InSpaceType, along with a hierarchical space type definition to facilitate our study. Twelve recent high-performing methods are examined by cross-dataset evaluation, including overall performance and space type breakdown. They more or less suffer from performance imbalance between space types, and we find that strategies like mixed-dataset pretraining or learning from large-scale pretraining show better robustness. Our analysis investigates a total of 4 training datasets and organizes their characteristics to better guide future research direction using these datasets. In particular, we find current synthetic data curation cannot faithfully reflect the real-world high complexity on cluttered and small objects in the near field. Going in-depth analysis of interplay between space types, we show generalization between groups. Specifically, generalization to different depth ranges is harder than to scene appearance and arrangement change. We further inspect three approaches, class reweighting, type-balanced sampler, and meta-learning to enhance the generalization. <br>
+
+Overall, this work pursues a practical purpose and emphasizes the importance of this usually overlooked factor- space type in indoor environments. We release the analysis tool, including codes and datasets, to diagnose a pretrained model and show metrics for hierarchical space type breakdown. We believe such a tool is useful to broad interest in the robotic vision community. Note that the work focuses on monocular depth estimation as it is fundamental and useful in wide applications such as indoor robots or AR/VR. Multiview reconstruction may also need attention on space type as a future study.</h4>
                 </p>
             </div>
         </div>
@@ -176,7 +163,7 @@
             <div class="col-md-8 col-md-offset-2">
 
                     <h3>Sample heirarchy labeling and breakdown:<br></h3>
-                    <image src="pics/heirarchy.png" height="1000px">
+                    <image src="pics/hier_table.png" height="1000px">
                 </p>
             </div>
         </div>
