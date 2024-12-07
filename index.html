@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>InSpaceType: A Dataset and Analysis Tool for Space Type in Indoor Monocular Depth Estimation</title>
+    <title>InSpaceType: Dataset and Benchmark for Reconsidering Cross-Space Type Performance in Indoor Monocular Depth
+    </title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +49,7 @@
         <h2 class="col-md-12 text-center">
             InSpaceType: A Dataset and Analysis Tool for Space Type in Indoor Monocular Depth Estimation<br> 
             <small>
-                In submission landing page
+                BMVC 2024
             </small>
         </h2>
     </div>
@@ -95,7 +96,23 @@
                     * Abstract
                 </h3>
                 <p class="text-justify">
-                    Indoor monocular depth estimation helps home automation, including robot navigation or AR/VR for surrounding perception. Most previous methods primarily experiment with the NYUv2 Dataset and concentrate on the overall performance in their evaluation. However, their robustness and generalization to diversely unseen types or categories for indoor spaces (spaces types) have yet to be discovered. Researchers may empirically find degraded performance in a released pretrained model on custom data or less-frequent types. This paper studies the common but easily overlooked factor- space type and realizes a model's performance variances across spaces. We present InSpaceType Dataset, a high-quality RGBD dataset for general indoor scenes, and benchmark 13 recent state-of-the-art methods on InSpaceType. Our examination shows that most of them suffer from performance imbalance between head and tailed types, and some top methods are even more severe. The work reveals and analyzes underlying bias in detail for transparency and robustness. We extend the analysis to a total of 4 datasets and discuss the best practice in synthetic data curation for training indoor monocular depth. Further, dataset ablation is conducted to find out the key factor in generalization. This work marks the first in-depth investigation of performance variances across space types and, more importantly, releases useful tools, including datasets and codes, to closely examine your pretrained depth models.
+                    Indoor monocular depth estimation helps home automation, including robot navigation
+or AR/VR for surrounding perception. Most previous methods primarily experiment
+with the NYUv2 Dataset and concentrate on the overall performance in their evaluation.
+However, their robustness and generalization to diversely unseen types or categories for
+indoor spaces (spaces types) have yet to be discovered. Researchers may empirically find
+degraded performance in a released pretrained model on custom data or less-frequent
+types. This paper studies the common but easily overlooked factor- space type and
+realizes a model’s performance variances across spaces. We present InSpaceType Dataset,
+a high-quality RGBD dataset for general indoor scenes, and benchmark 13 recent state-of-
+the-art methods on InSpaceType. Our examination shows that most of them suffer from
+performance imbalance between head and tailed types, and some top methods are even
+more severe. The work reveals and analyzes underlying bias in detail for transparency and
+robustness. We extend the analysis to a total of 4 datasets and discuss the best practice in
+synthetic data curation for training indoor monocular depth. Further, dataset ablation is
+conducted to find out the key factor in generalization. This work marks the first in-depth
+investigation of performance variances across space types and, more importantly, releases
+useful tools, including datasets and codes, to closely examine your pretrained depth models.
                 </p>
             </div>
         </div>
@@ -157,7 +174,7 @@
                     <br>
                     <h4> The work pioneers studying space types in indoor monocular depth for practical purposes, especially with the advent of many large models, but the evaluation and quality assessment still primarily focus on a single and older benchmark. First, we present novel InSpaceType Dataset that meets the high-resolution and high-quality RGBD data requirements for cutting-edge applications in AR/VR displays and indoor robotics. Previous works focusing on methods may overlook performance variances. We use InSpaceType to study 13 recent high-performing methods and analyze their zero-shot cross-dataset performance for both overall results and performance variances across space types. Even some top methods have severe imbalance, and some methods are actually less imbalanced than higher-performing ones.<br>
 
-                        We extend our analysis to more synthetic and real datasets, including SimSIN, UniSIN, and Hypersim, to reveal their bias and guide proper usage. Especially, current synthetic data curation may not faithfully reflect the real-world high complexity in cluttered and small objects, and we suggest the best practice. Further, they may miss some common types like hallway if rendering single 3D CAD spaces separately. We further do ablation on InSpaceType and find space scale is the key factor that hinders generalization. As part of our contribution, our released tools for both research and practical aids, including codes and datasets, can diagnose a pretrained model and show its hierarchical performance breakdown. Overall, this work underscores the importance of considering performance variances in the practical deployment of models, a crucial aspect often overlooked in the field.</h4>
+                        </h4>
                 </p>
             </div>
         </div>
@@ -165,7 +182,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
-                    <h3>Sample heirarchy labeling and breakdown:<br></h3>
+                    <h3>Sample heirarchy labeling and breakdown: (Please see the supplementary document for the full list. The hierarchical breakdowns show details for each type)<br></h3>
                     <image src="pics/hier_table.png" height="1000px">
                 </p>
             </div>
